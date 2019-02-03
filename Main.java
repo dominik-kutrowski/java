@@ -1,4 +1,4 @@
-package com.industry.math;
+
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -9,16 +9,16 @@ public class Main {
         // write your code here
         // ctrl + alt + l
 
+        Scanner LineReader = new Scanner(System.in);
+        calculator C1 = new calculator();
+        String StartStop = "no";
+
+        C1.info();
+        C1.get_start_time();
+
         Double liczba1 = 0.0;
         Double liczba2 = 0.0;
 
-        Scanner LineReader = new Scanner(System.in);
-        Calculator calculator = new Calculator();
-        String startstop = "no";
-
-        calculator.info();
-
-        //dane wejściowe:
         do {
             Exception exception;
             do {
@@ -42,17 +42,11 @@ public class Main {
                 }
             } while (exception != null);
 
-            //obliczenia:
-            System.out.printf("\n\n add: " + calculator.add(liczba1, liczba2) +"\n");
-            System.out.printf(" sub: " + calculator.sub(liczba1, liczba2) +"\n");
-            System.out.printf(" mul: " + calculator.mul(liczba1, liczba2) +"\n");
-            if(liczba2!=0) System.out.printf(" div: " + calculator.div(liczba1, liczba2) +"\n");
-            else{System.out.printf(" div by 0 - maybe next time :)");}
+            C1.all(liczba1, liczba2);
 
-            //koniec?
             System.out.println("\ncont. (no/yes): ");
-            startstop = LineReader.next();
+            StartStop = LineReader.next();
 
-        } while (startstop == "yes");
+        } while (StartStop == "yes");
     }
 }
